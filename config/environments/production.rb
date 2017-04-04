@@ -1,8 +1,10 @@
 # Settings specified here will take precedence over those in config/application.rb
+
 RedmineApp::Application.configure do
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
   config.cache_classes = true
+
 
   #####
   # Customize the default logger (http://ruby-doc.org/core/classes/Logger.html)
@@ -18,6 +20,22 @@ RedmineApp::Application.configure do
 
   # Full error reports are disabled and caching is turned on
   config.action_controller.perform_caching = true
+ # Disable delivery errors if you bad email addresses should just be ignored
+config.action_mailer.raise_delivery_errors = false
+config.action_mailer.default_url_options = { :host => '65.61.189.142:3000' }
+config.action_mailer.perform_deliveries = true
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.raise_delivery_errors = true
+
+config.action_mailer.smtp_settings = {
+:enable_starttls_auto => true,
+:address => "smtp.gmail.com",
+:port=>587,
+:domain => "gmail.com",
+:authentication => :login,
+:user_name => "testphserver@gmail.com",
+:password => "petheropwd",
+} # Disable delivery errors if you bad email addresses should just be ignored
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host                  = "http://assets.example.com"

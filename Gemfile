@@ -18,6 +18,7 @@ group :openid do
   gem "rack-openid"
 end
 
+
 # Optional gem for exporting the gantt to a PNG file, not supported with jruby
 platforms :mri, :mingw do
   group :rmagick do
@@ -45,12 +46,12 @@ if File.exist?(database_file)
   if adapters.any?
     adapters.each do |adapter|
       case adapter
-      when 'mysql2'
-        gem "mysql2", "~> 0.3.11", :platforms => [:mri, :mingw]
-        gem "activerecord-jdbcmysql-adapter", :platforms => :jruby
-      when 'mysql'
-        gem "mysql", "~> 2.8.1", :platforms => [:mri, :mingw]
-        gem "activerecord-jdbcmysql-adapter", :platforms => :jruby
+#      when 'mysql2'
+ #       gem "mysql2", "~> 0.3.11", :platforms => [:mri, :mingw]
+  #      gem "activerecord-jdbcmysql-adapter", :platforms => :jruby
+  #    when 'mysql'
+   #     gem "mysql", "~> 2.8.1", :platforms => [:mri, :mingw]
+    #    gem "activerecord-jdbcmysql-adapter", :platforms => :jruby
       when /postgresql/
         gem "pg", ">= 0.11.0", :platforms => [:mri, :mingw]
         gem "activerecord-jdbcpostgresql-adapter", :platforms => :jruby
